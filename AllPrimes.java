@@ -41,6 +41,40 @@ public class AllPrimes{
 
         long threadBegin = System.currentTimeMillis();
 
+        /*
+        Thread t1 = new Thread(new Checker1(sieve, limitNumber, counter, 1));
+        Thread t2 = new Thread(new Checker2(sieve, limitNumber, counter, 2));
+        Thread t3 = new Thread(new Checker3(sieve, limitNumber, counter, 3));
+        Thread t4 = new Thread(new Checker4(sieve, limitNumber, counter, 4));
+        Thread t5 = new Thread(new Checker5(sieve, limitNumber, counter, 5));
+        Thread t6 = new Thread(new Checker6(sieve, limitNumber, counter, 6));
+        Thread t7 = new Thread(new Checker7(sieve, limitNumber, counter, 7));
+        Thread t8 = new Thread(new Checker8(sieve, limitNumber, counter, 8));
+
+        t1.start();
+        t2.start();
+        t3.start();
+        t4.start();
+        t5.start();
+        t6.start();
+        t7.start();
+        t8.start();
+
+        try{
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+            t5.join();
+            t6.join();
+            t7.join();
+            t8.join();
+        } catch (InterruptedException e){
+            ;
+        }
+        */
+
+        
         for(int i = 0; i < numThreads; i++){
             threads[i] = new Thread(new PrimeChecker(sieve, limitNumber, counter, i));
             threads[i].start();
@@ -53,6 +87,7 @@ public class AllPrimes{
                 ;
             }
         }
+        
         
         long threadEnd = System.currentTimeMillis();
         double threadTime = threadEnd - threadBegin;
